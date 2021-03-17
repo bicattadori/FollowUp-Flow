@@ -1,0 +1,34 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Large",
+            "weight": "Bolder",
+            "text": "Message reminder"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Reminder to follow up on a message from @{triggerBody()?['entity']?['teamsFlowRunContext']?['messagePayload']?['from']?['user']?['displayName']}"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Message content:",
+            "weight": "Bolder",
+            "separator": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "@{triggerBody()?['entity']?['teamsFlowRunContext']?['messagePayload']?['body']?['plainText']}"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "View message",
+            "url": "@{triggerBody()?['entity']?['teamsFlowRunContext']?['messagePayload']?['linkToMessage']}"
+        }
+    ]
+}

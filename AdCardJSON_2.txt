@@ -1,0 +1,4 @@
+{
+  "properties/principal/id": @{outputs('Recupera_profilo_utente_(V2)')?['body/id']},
+  "properties/principal/type": "User"
+}
